@@ -1,0 +1,29 @@
+# Only the .tex source and the final .pdf are tracked.
+# Everything else stays local and must never be pushed.
+
+# Ignore everything by default
+*
+
+# Then un-ignore the two files we keep, plus repo meta
+!.gitignore
+!README.md
+!Resume Template.tex
+!Sahand Sorouri - Senior Product Manager.pdf
+
+# Belt and suspenders: never track these even if force-added
+Run.py
+fonts/
+Fonts/
+*.log
+*.aux
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+missfont.log
+OLD CV/
+Old Ones*/
+Old Tex/
+Resume Versions/
+backup*
+.DS_Store

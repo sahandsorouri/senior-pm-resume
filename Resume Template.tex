@@ -1,0 +1,188 @@
+% !TeX program = xelatex
+\documentclass[a4paper,10pt]{article}
+\usepackage[paperwidth=210mm,paperheight=310mm,left=2.5em,right=2.5em,top=2.5em,bottom=1.5em,heightrounded]{geometry}
+\usepackage{enumitem}
+\usepackage{iftex}
+\ifPDFTeX
+  \PackageError{resume}{Please compile with XeLaTeX or LuaLaTeX}{Switch engine in your editor.}
+\else
+  \usepackage{fontspec}
+  \newcommand*{\setmodernfonts}{%
+    \IfFontExistsTF{Segoe UI Variable}{\setmainfont{Segoe UI Variable}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Segoe UI Variable}[Scale=MatchLowercase]}{\IfFileExists{fonts/Segoe.UI_p30download.com.ttf}{\setmainfont{Segoe UI}[Path=fonts/,UprightFont=Segoe.UI_p30download.com.ttf,BoldFont=Segoe.UI.Bold_p30download.com.ttf,ItalicFont=Segoe.UI.Italic_p30download.com.ttf,BoldItalicFont=Segoe.UI.Bold.Italic_p30download.com.ttf,Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Segoe UI}[Path=fonts/,UprightFont=Segoe.UI_p30download.com.ttf,BoldFont=Segoe.UI.Bold_p30download.com.ttf,ItalicFont=Segoe.UI.Italic_p30download.com.ttf,BoldItalicFont=Segoe.UI.Bold.Italic_p30download.com.ttf,Scale=MatchLowercase]}{\IfFontExistsTF{Bahnschrift}{\setmainfont{Bahnschrift}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Bahnschrift}[Scale=MatchLowercase]}{\IfFontExistsTF{Inter}{\setmainfont{Inter}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Inter}[Scale=MatchLowercase]}{\IfFontExistsTF{Carlito}{\setmainfont{Carlito}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Carlito}[Scale=MatchLowercase]}{\IfFontExistsTF{Helvetica Neue}{\setmainfont{Helvetica Neue}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Helvetica Neue}[Scale=MatchLowercase]}{\setmainfont{Latin Modern Roman}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Latin Modern Sans}[Scale=MatchLowercase]}}}}}}}
+  \setmodernfonts
+\fi
+\usepackage[final]{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{changepage}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\linespread{1.03}
+\setlength{\parskip}{0.2em}
+
+\setlength{\parindent}{0pt}
+\definecolor{hyperlinks}{HTML}{000000}
+\definecolor{grey}{HTML}{555555}
+
+\hypersetup{
+    colorlinks = true,
+    urlcolor=hyperlinks,
+}
+
+\providecommand{\faExternalLink}{\textcolor{grey}{\tikz[baseline=-0.55ex, x=0.9ex, y=0.9ex, line width=0.12ex]{\draw (0.15,0.15) rectangle (1.0,1.0); \draw (0.45,0.55) -- (0.95,1.05); \draw (0.75,1.05) -- (0.95,1.05) -- (0.95,0.85);}}}
+
+\newcommand{\info}[1]{#1}
+\newcommand{\NameStyle}{\fontsize{18}{20}\selectfont}
+\newcommand{\SectionStyle}{\fontsize{12.5}{14}\selectfont\bfseries}
+\newcommand{\RoleStyle}{\fontsize{12}{14}\selectfont\bfseries}
+\newcommand{\BodyStyle}{\fontsize{10}{12}\selectfont}
+\newcommand{\SmallBodyStyle}{\fontsize{9}{11}\selectfont}
+
+\newcommand{\resumetitle}[1]{{\NameStyle\bfseries \info{#1}}\vspace{10pt}}
+\newcommand{\sectiontitle}[1]{\begin{tcolorbox}[colback=black,colupper=white,sharp corners,boxrule=0pt,boxsep=3pt,left=0pt,right=0pt,top=1pt,bottom=1pt]{\SectionStyle \info{#1}}\end{tcolorbox}}
+\newcommand{\MajorRoleStyle}{\fontsize{15.5}{17.8}\selectfont\bfseries}
+\newcommand{\majorposition}[1]{\vspace{6pt}{\hspace{0pt}{\MajorRoleStyle \info{#1}}}\vspace{0.02em}}
+\newcommand{\position}[1]{{\RoleStyle \info{#1}}}\vspace{0.05em}
+\newcommand{\bulletitem}[1]{\item {\BodyStyle \info{#1}}\vspace{0.1em}}
+\newcommand{\normaltext}[1]{\info{#1}}
+\newcommand{\graytext}[1]{\textcolor{grey}{\info{#1}}}
+\newcommand{\white}[1]{\textcolor{white}{\info{#1}}}
+\newcommand{\link}[2]{\href{#1}{\textcolor{hyperlinks}{\info{#2}}}}
+\newtcolorbox{mybox}[1][]{colback=gray!10,colframe=black,colupper=black,sharp corners,boxrule=0.5pt,left=1pt,right=1pt,top=1pt,bottom=1pt,#1}
+\newcommand{\boxedtext}[1]{\begin{mybox}\info{#1}\end{mybox}}
+
+\setlist[itemize]{noitemsep, topsep=0pt}
+\newcommand{\kpi}[1]{\textbf{#1}}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+\noindent{\Huge\textbf{\info{Sahand Sorouri}}}\\
+\vspace{7pt}
+{\textbf{\LARGE{\info{Senior Product Manager}}}}\\
+\normalsize
+\graytext{\info{Dubai, UAE}} $\cdot$ \href{mailto:sahand.sorouri@gmail.com}{\info{sahand.sorouri@gmail.com}}
+\\
+\graytext{\info{+971 52 605 8752}} $\cdot$ \href{https://linkedin.com/in/sahand-sorouri}{\info{linkedin.com/in/sahand-sorouri} \faExternalLink{}} $\cdot$ \href{https://sahand.sorouri.com}{\info{sahand.sorouri.com} \faExternalLink{}}
+\end{center}
+\info{\textbf{Senior Product Manager (Crypto Exchange \& Retail Trading)} with \textbf{6+ years} building and scaling financial and marketplace products across crypto, fintech, and e-commerce. Led retail trading and onboarding experiences end-to-end (\textbf{exchange UX}, \textbf{P2P marketplace}, \textbf{activation funnels}), using data and user research to drive measurable outcomes. Experienced partnering with engineering, design, analytics, compliance, and growth to ship globally. Delivered \kpi{+50\%} revenue uplift, \kpi{-35\%} onboarding drop-offs, and \kpi{+25\%} trading dashboard engagement across \kpi{1M+} active users and \kpi{2M+} monthly transactions.}
+\vspace{2pt}
+\sectiontitle{Work Experience}
+{\majorposition{\href{https://nexttoptech.org/}{\info{Nextop Tech Company} \faExternalLink{}} \small{\info{Dubai, UAE}}} \hfill\Large{\textbf{\graytext{\info{2024 - 2025 [1 year]}}}}}\\
+{\small{\graytext{\info{Cryptocurrency Financial Company, Specializing in Crypto, B2B, B2C, \textbf{Web \& Mobile}}}}
+\begin{adjustwidth}{0.5cm}{0cm}
+
+{{\position{\info{Senior Product Manager, }}\large{\href{https://my.topchange.net/en}{\info{TopChange Product} \faExternalLink{} }}}\hfill \large\graytext{\info{May 2024 – Apr 2025 (1 year)}}}
+
+{\small\graytext{\info{\textbf{Leading Middle Eastern} Crypto Platform: \kpi{2M+} transactions/month, \kpi{1M+} active users}}}
+\begin{adjustwidth}{0.5cm}{0cm}
+\normalsize
+\begin{itemize}
+    \bulletitem{Owned \textbf{retail trading and onboarding initiatives} end-to-end (discovery → PRD/specs → delivery), driving \kpi{+50\%} revenue uplift.}
+  \bulletitem{Launched \textbf{P2P trading marketplace} (local fiat ↔ USDT/USDC) with merchant tooling, risk controls, and dispute flows, scaling to \kpi{5{,}000+} secure trades/day.}
+  \bulletitem{Improved \textbf{trading dashboard engagement} by \kpi{25\%} through VoC-led UX redesign and KPI/OKR alignment (\kpi{4.8/5} user rating).}
+  \bulletitem{Reduced \textbf{onboarding drop-offs} by \kpi{35\%} by diagnosing activation bottlenecks with analytics/AI insights and iterating signup + KYC flows.}
+\end{itemize}
+\end{adjustwidth}
+\end{adjustwidth}
+\vspace{5pt}
+{\majorposition{\href{https://snappfood.ir}{\info{SnappFood Company} \faExternalLink{}}} \hfill\Large{\textbf{\graytext{\info{2018 - 2023 [5 years]}}}}}\\
+{\small{\graytext{\info{eCommerce Marketplace, Food Tech, B2B, B2C, \textbf{Web \& Mobile}: \kpi{10M+} monthly transactions, \kpi{4M} monthly active users (MAU), \kpi{80K} partners, \kpi{2K} employees}}}}
+\begin{adjustwidth}{0.5cm}{0cm}
+{{\position{\info{Head of Product, }}\large{\href{https://qbar.ir/cafewish}{\info{QBAR Startup} \faExternalLink{} }}}{\small{\graytext{\info{(Company's Initiative)}}}}{\RoleStyle \info{ (0--1)}}\hfill \large\graytext{\info{Mar 2022 – Aug 2023 (18 months)}}}
+\\
+{\small\graytext{\info{QR-facilitator: \kpi{1M+} monthly visitors, \kpi{3K+} \textbf{B2B} subscriptions, \textbf{20} employees}}}
+\normalsize
+\begin{adjustwidth}{0.5cm}{0cm}
+\begin{itemize}
+  \bulletitem{Built a 0--1 QR-ordering platform, expanding it to \kpi{1M+} monthly users and \kpi{3,000+} business subscriptions.}
+  \bulletitem{Cut business onboarding from \kpi{30} days to \kpi{3} via AI-facilitated workflow automation and customer-relationship-management (CRM) integrations, increasing partner satisfaction (Net Promoter Score).}
+  \bulletitem{Generated \kpi{\$0.5M+} funding by aligning leadership around user-centered performance metrics and clear execution dashboards.}
+\end{itemize}
+\end{adjustwidth}
+\end{adjustwidth}
+\vspace{3pt}
+\begin{adjustwidth}{0.5cm}{0cm}
+{{\position{\info{Senior Product Manager}}}\hfill {\large\graytext{\info{Sep 2020 – Feb 2022 (18 months)}}}}
+\\
+{\small\graytext{\info{Spearheaded key strategic projects, working directly with SnappFood's \textbf{Chairman of the Board}}}}
+\normalsize
+\begin{adjustwidth}{0.5cm}{0cm}
+\begin{itemize}
+  \bulletitem{Built and led a \kpi{5}-member growth product team, driving company-wide strategic goals by \kpi{60\%} via cross-functional OKR alignment.}
+  \bulletitem{Implemented cash-on-delivery software-as-a-service (SaaS) for unbanked customers, increasing transaction success by \kpi{5\%} and retention by \kpi{20\%}.}
+  \bulletitem{Implemented a delivery platform in Iraq with \kpi{10,000+} orders/month, supporting regional growth targets.}
+  \bulletitem{Lowered logistics costs by \kpi{20\%} through ML-powered delivery price segmentation without impacting service-level standards.}
+\end{itemize}
+\end{adjustwidth}
+\vspace{3pt}
+{{\position{\info{Product Manager}}}\hfill \large\graytext{\info{Sep 2018 – Aug 2020 (2 years)}}}
+\normalsize
+\begin{adjustwidth}{0.5cm}{0cm}
+\begin{itemize}
+  \bulletitem{Rolled out ML-based seller onboarding, aligning automation efforts with scalability OKRs and decreasing onboarding by \kpi{75\%}.}
+  \bulletitem{Built and scaled online grocery stores to 10 cities with AI-powered route optimization, delivering to \kpi{500,000+} homes under COVID-era strategic coverage goals.}
+ \bulletitem{Built an in-app vendor bidding system for sponsored content and saw a \kpi{15\%} increase in vendor participation and revenue.}
+\end{itemize}
+\end{adjustwidth}
+\end{adjustwidth}
+\vspace{3pt}
+
+{\boxedtext{\textbf{Product Strategy \& Execution:} Roadmap Ownership · OKR/KPI Alignment · Trading Product Delivery · Go-to-Market Execution · A/B Testing\\
+\textbf{Trading \& Compliance:} Retail Trading (Spot/P2P) · Fees \& Pricing · Risk Controls · KYC/AML Collaboration · Merchant Tooling\\
+\textbf{AI \& Technology:} AI-Driven Product Features · Machine Learning Use Cases · Blockchain (Solidity, MetaMask) · SQL/Python\\
+\textbf{Tools \& Methods:} Agile/Scrum · Jira · Figma · Mixpanel · Amplitude · UX Research · Strategy Dashboards · Cursor · Replit · ElevenLabs}}
+
+\vspace{5pt}
+\sectiontitle{Independent Projects}
+{\position{\info{AI \& Real Estate - PropTech,}} \small{\textbf{\info{Dubai, UAE}}}} \hfill{\large{\graytext{\info{May 2025 – Sep 2025 (5 months)}}}}
+\begin{adjustwidth}{0.5cm}{0cm}
+\normalsize
+\begin{itemize}
+  \bulletitem{Created and scaled an AI-powered outbound calling MVP for real estate agents that automated over \kpi{25,000} calls a week and offered quantifiable lead-conversion reports.}
+  \bulletitem{Consolidated \kpi{5M+} real estate listings into a verified contact database (\textasciitilde\kpi{300,000} records) enabling high-return marketing campaigns.}
+  \bulletitem{Created \textbf{multilingual voice assistants} and SEO website with a future foundation for CRM integration.}
+\end{itemize}
+\end{adjustwidth}
+
+\vspace{5pt}
+\begin{center}
+\noindent\begin{minipage}{0.39\textwidth}
+  \sectiontitle{Education}
+  {\BodyStyle\setlength{\parskip}{0pt}
+  \textbf{\info{Sharif University of Technology (2018)}}\\
+  \textbf{\info{Bachelor of Electrical Engineering}}
+  \\
+  \graytext{\info{{Ranked Top \kpi{0.003\%}} Nationally \\(9th out of 300,000+ applicants) \\ Coursework: Product Design, Business Analytics}}
+  }
+\end{minipage}%
+  \hfill
+  \begin{minipage}{0.28\textwidth}
+  \sectiontitle{Interests}
+  {\BodyStyle\setlength{\parskip}{0pt}
+  \info{Artificial Intelligence}
+  \\
+  \info{Chess and Strategic Games}
+  \\
+  \info{Bouldering (Rock Climbing)}
+  \\
+  \info{Global Market Trend Analysis}
+  \\
+  \info{Community Leadership \& Nonprofits}
+  }
+  \end{minipage}%
+  \hfill
+\begin{minipage}{0.28\textwidth}
+  \sectiontitle{Certificates}
+  {\BodyStyle\setlength{\parskip}{0pt}
+  \href{https://www.credly.com/badges/d370d9c3-e34d-46f4-a4bf-ef5c8fc42cd1/linked_in_profile}{\info{AI for Product Management} \faExternalLink{}}\\
+  \href{https://www.linkedin.com/learning/certificates/870c0fd2f066e7b8503e479c2490fafd5882f912ff675c28901dc0718ee39ed9}{\info{Aha! Product Management} \faExternalLink{}}\\
+  \info{DeFi \& Tokenomics (In Progress)}\\
+  \info{Data Analysis} \href{https://www.linkedin.com/learning/certificates/ffca4d550b1e4b91b668313ff2bf815beb1a5e1ab6fd508e4ed9188aafe2db28?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BfdmfS%2FgnTKqHBLUxxTyUPQ%3D%3D}{\faExternalLink{}}, \href{https://www.linkedin.com/learning/certificates/cb5129fee28b086cddf3d21cbfeed021530abfbebfa7fa4a8f8964d9b7aa3c32?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BfdmfS%2FgnTKqHBLUxxTyUPQ%3D%3D}{\faExternalLink{}}\\
+  \info{Statistics} \href{https://www.linkedin.com/learning/certificates/b30b4d5c833c3a100d3be45f7897425ec2152b81b473b240359e358ce2c128d8}{\faExternalLink{}}, \href{https://www.linkedin.com/learning/certificates/1d347521f9fc7171d89c71a1b1944ce84c5e74870d3e73956425be407dd61258}{\faExternalLink{}}, \href{https://www.linkedin.com/learning/certificates/6422926178665f0c37e9fd93754684319febdbfa2a3b75db1f243990005333f6}{\faExternalLink{}}}
+  \end{minipage}
+\end{center}
+\end{document}
