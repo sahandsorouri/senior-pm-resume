@@ -1,0 +1,179 @@
+% !TeX program = xelatex
+%
+% ============================================================
+%  RESUME TEMPLATE
+% ============================================================
+%  How to use:
+%   1. Compile with XeLaTeX (not pdfLaTeX). Or use Overleaf and
+%      set the compiler to XeLaTeX, or run: tectonic resume-template.tex
+%   2. Fill in every place marked  <<< ... >>>  below.
+%   3. Delete the example bullets you do not need, or add more
+%      with another \bulletitem{...} line.
+%   4. Do not touch the preamble (everything before
+%      \begin{document}) unless you want to change the styling.
+%
+%  Reusable commands (defined in the preamble):
+%   \sectiontitle{...}   black section bar (e.g. Work Experience)
+%   \majorposition{...}  big company / employer heading
+%   \position{...}       a job title
+%   \graytext{...}       muted gray text (dates, sub-lines)
+%   \bulletitem{...}     one bullet inside an itemize block
+%   \kpi{...}            bold emphasis for numbers and metrics
+%   \boxedtext{...}      light-gray bordered box (used for skills)
+%   \faExternalLink{}    small external-link icon
+% ============================================================
+\documentclass[a4paper,10pt]{article}
+\usepackage[paperwidth=210mm,paperheight=310mm,left=2.5em,right=2.5em,top=2.5em,bottom=1.5em,heightrounded]{geometry}
+\usepackage{enumitem}
+\usepackage{iftex}
+\ifPDFTeX
+  \PackageError{resume}{Please compile with XeLaTeX or LuaLaTeX}{Switch engine in your editor.}
+\else
+  \usepackage{fontspec}
+  \newcommand*{\setmodernfonts}{%
+    \IfFontExistsTF{Segoe UI Variable}{\setmainfont{Segoe UI Variable}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Segoe UI Variable}[Scale=MatchLowercase]}{\IfFileExists{fonts/Segoe.UI_p30download.com.ttf}{\setmainfont{Segoe UI}[Path=fonts/,UprightFont=Segoe.UI_p30download.com.ttf,BoldFont=Segoe.UI.Bold_p30download.com.ttf,ItalicFont=Segoe.UI.Italic_p30download.com.ttf,BoldItalicFont=Segoe.UI.Bold.Italic_p30download.com.ttf,Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Segoe UI}[Path=fonts/,UprightFont=Segoe.UI_p30download.com.ttf,BoldFont=Segoe.UI.Bold_p30download.com.ttf,ItalicFont=Segoe.UI.Italic_p30download.com.ttf,BoldItalicFont=Segoe.UI.Bold.Italic_p30download.com.ttf,Scale=MatchLowercase]}{\IfFontExistsTF{Bahnschrift}{\setmainfont{Bahnschrift}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Bahnschrift}[Scale=MatchLowercase]}{\IfFontExistsTF{Inter}{\setmainfont{Inter}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Inter}[Scale=MatchLowercase]}{\IfFontExistsTF{Carlito}{\setmainfont{Carlito}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Carlito}[Scale=MatchLowercase]}{\IfFontExistsTF{Helvetica Neue}{\setmainfont{Helvetica Neue}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Helvetica Neue}[Scale=MatchLowercase]}{\setmainfont{Latin Modern Roman}[Ligatures=TeX,Scale=MatchLowercase]\setsansfont{Latin Modern Sans}[Scale=MatchLowercase]}}}}}}}
+  \setmodernfonts
+\fi
+\usepackage[final]{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{changepage}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\linespread{1.03}
+\setlength{\parskip}{0.2em}
+
+\setlength{\parindent}{0pt}
+\definecolor{hyperlinks}{HTML}{000000}
+\definecolor{grey}{HTML}{555555}
+
+\hypersetup{
+    colorlinks = true,
+    urlcolor=hyperlinks,
+}
+
+\providecommand{\faExternalLink}{\textcolor{grey}{\tikz[baseline=-0.55ex, x=0.9ex, y=0.9ex, line width=0.12ex]{\draw (0.15,0.15) rectangle (1.0,1.0); \draw (0.45,0.55) -- (0.95,1.05); \draw (0.75,1.05) -- (0.95,1.05) -- (0.95,0.85);}}}
+
+\newcommand{\info}[1]{#1}
+\newcommand{\NameStyle}{\fontsize{18}{20}\selectfont}
+\newcommand{\SectionStyle}{\fontsize{12.5}{14}\selectfont\bfseries}
+\newcommand{\RoleStyle}{\fontsize{12}{14}\selectfont\bfseries}
+\newcommand{\BodyStyle}{\fontsize{10}{12}\selectfont}
+\newcommand{\SmallBodyStyle}{\fontsize{9}{11}\selectfont}
+
+\newcommand{\resumetitle}[1]{{\NameStyle\bfseries \info{#1}}\vspace{10pt}}
+\newcommand{\sectiontitle}[1]{\begin{tcolorbox}[colback=black,colupper=white,sharp corners,boxrule=0pt,boxsep=3pt,left=0pt,right=0pt,top=1pt,bottom=1pt]{\SectionStyle \info{#1}}\end{tcolorbox}}
+\newcommand{\MajorRoleStyle}{\fontsize{15.5}{17.8}\selectfont\bfseries}
+\newcommand{\majorposition}[1]{\vspace{6pt}{\hspace{0pt}{\MajorRoleStyle \info{#1}}}\vspace{0.02em}}
+\newcommand{\position}[1]{{\RoleStyle \info{#1}}}\vspace{0.05em}
+\newcommand{\bulletitem}[1]{\item {\BodyStyle \info{#1}}\vspace{0.1em}}
+\newcommand{\normaltext}[1]{\info{#1}}
+\newcommand{\graytext}[1]{\textcolor{grey}{\info{#1}}}
+\newcommand{\white}[1]{\textcolor{white}{\info{#1}}}
+\newcommand{\link}[2]{\href{#1}{\textcolor{hyperlinks}{\info{#2}}}}
+\newtcolorbox{mybox}[1][]{colback=gray!10,colframe=black,colupper=black,sharp corners,boxrule=0.5pt,left=1pt,right=1pt,top=1pt,bottom=1pt,#1}
+\newcommand{\boxedtext}[1]{\begin{mybox}\info{#1}\end{mybox}}
+
+\setlist[itemize]{noitemsep, topsep=0pt}
+\newcommand{\kpi}[1]{\textbf{#1}}
+
+\begin{document}
+\thispagestyle{empty}
+
+% ---------- HEADER ----------
+% Put your name, title, and contact details here.
+\begin{center}
+\noindent{\Huge\textbf{\info{<<< YOUR NAME >>>}}}\\
+\vspace{7pt}
+{\textbf{\LARGE{\info{<<< YOUR JOB TITLE >>>}}}}\\
+\normalsize
+\graytext{\info{<<< City, Country >>>}} $\cdot$ \href{mailto:you@example.com}{\info{you@example.com}}
+\\
+\graytext{\info{<<< +000 000 0000 >>>}} $\cdot$ \href{https://linkedin.com/in/your-handle}{\info{linkedin.com/in/your-handle} \faExternalLink{}} $\cdot$ \href{https://your-site.com}{\info{your-site.com} \faExternalLink{}}
+\end{center}
+
+% ---------- SUMMARY ----------
+% 3 to 4 lines. Lead with your role and years of experience.
+% Wrap any number you want to stand out in \kpi{...}.
+\info{<<< One short paragraph: your title, your years of experience, what you build, and 2 to 3 headline results such as \kpi{+50\%} revenue or \kpi{1M+} users. >>>}
+\vspace{2pt}
+
+% ---------- WORK EXPERIENCE ----------
+\sectiontitle{Work Experience}
+
+% --- One employer block. Copy this whole block for each company. ---
+{\majorposition{\href{https://company.com}{\info{<<< Company Name >>>} \faExternalLink{}} \small{\info{<<< City, Country >>>}}} \hfill\Large{\textbf{\graytext{\info{<<< 2022 - 2025 >>>}}}}}\\
+{\small{\graytext{\info{<<< One-line company description: industry, B2B/B2C, scale numbers >>>}}}}
+\begin{adjustwidth}{0.5cm}{0cm}
+
+% A role inside that company. Repeat for each title you held there.
+{{\position{\info{<<< Job Title >>>}}}\hfill \large\graytext{\info{<<< Start – End (duration) >>>}}}
+{\small\graytext{\info{<<< Optional sub-line: team size, scope, who you reported to >>>}}}
+\begin{adjustwidth}{0.5cm}{0cm}
+\normalsize
+\begin{itemize}
+  \bulletitem{<<< Achievement with a metric, e.g. grew X by \kpi{30\%} >>>}
+  \bulletitem{<<< What you owned and the result >>>}
+  \bulletitem{<<< Another concrete outcome >>>}
+\end{itemize}
+\end{adjustwidth}
+\end{adjustwidth}
+\vspace{5pt}
+% --- end of employer block ---
+
+% ---------- SKILLS ----------
+% A bordered box. Group skills by theme. Separate items with ·
+{\boxedtext{\textbf{<<< Theme 1 >>>:} <<< Skill · Skill · Skill >>>\\
+\textbf{<<< Theme 2 >>>:} <<< Skill · Skill · Skill >>>\\
+\textbf{<<< Theme 3 >>>:} <<< Skill · Skill · Skill >>>}}
+
+\vspace{5pt}
+% ---------- OPTIONAL EXTRA SECTION ----------
+% Rename or delete this. Same pattern as Work Experience.
+\sectiontitle{Independent Projects}
+{\position{\info{<<< Project or role >>>}} \small{\textbf{\info{<<< Location >>>}}}} \hfill{\large{\graytext{\info{<<< Dates >>>}}}}
+\begin{adjustwidth}{0.5cm}{0cm}
+\normalsize
+\begin{itemize}
+  \bulletitem{<<< What you built and the impact >>>}
+  \bulletitem{<<< Another result >>>}
+\end{itemize}
+\end{adjustwidth}
+
+\vspace{5pt}
+% ---------- FOOTER: three columns ----------
+% Education, Interests, Certificates side by side.
+\begin{center}
+\noindent\begin{minipage}{0.39\textwidth}
+  \sectiontitle{Education}
+  {\BodyStyle\setlength{\parskip}{0pt}
+  \textbf{\info{<<< University, Year >>>}}\\
+  \textbf{\info{<<< Degree >>>}}
+  \\
+  \graytext{\info{<<< Honors, rank, or relevant coursework >>>}}
+  }
+\end{minipage}%
+  \hfill
+  \begin{minipage}{0.28\textwidth}
+  \sectiontitle{Interests}
+  {\BodyStyle\setlength{\parskip}{0pt}
+  \info{<<< Interest >>>}
+  \\
+  \info{<<< Interest >>>}
+  \\
+  \info{<<< Interest >>>}
+  }
+  \end{minipage}%
+  \hfill
+\begin{minipage}{0.28\textwidth}
+  \sectiontitle{Certificates}
+  {\BodyStyle\setlength{\parskip}{0pt}
+  \href{https://link-to-cert.com}{\info{<<< Certificate >>>} \faExternalLink{}}\\
+  \info{<<< Certificate (no link) >>>}\\
+  \info{<<< Certificate >>>}}
+  \end{minipage}
+\end{center}
+\end{document}

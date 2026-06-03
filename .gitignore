@@ -4,11 +4,12 @@
 # Ignore everything by default
 *
 
-# Then un-ignore the two files we keep, plus repo meta
+# Then un-ignore the files we keep, plus repo meta
 !.gitignore
 !README.md
-!Resume Template.tex
+!Sahand Sorouri - Senior Product Manager.tex
 !Sahand Sorouri - Senior Product Manager.pdf
+!resume-template.tex
 
 # Belt and suspenders: never track these even if force-added
 Run.py

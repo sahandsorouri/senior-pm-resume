@@ -12,12 +12,13 @@ My resume, written in LaTeX. Senior PM with 6+ years across crypto, fintech, and
 
 | File | Description |
 |------|-------------|
-| `Resume Template.tex` | The LaTeX source |
-| `Sahand Sorouri - Senior Product Manager.pdf` | The compiled resume |
+| `Sahand Sorouri - Senior Product Manager.tex` | The LaTeX source of my resume |
+| `Sahand Sorouri - Senior Product Manager.pdf` | My compiled resume |
+| `resume-template.tex` | A blank version of the same design, with inline instructions, for you to fill in |
 
 ## Use it as a template
 
-The source is a single, self-contained `.tex` file. You are welcome to use it as a starting point for your own resume.
+Start from `resume-template.tex`. It is a single, self-contained file with the same design as my resume, but every spot you need to fill is marked `<<< ... >>>` and each section has a short comment explaining what goes there.
 
 It works with any of these fonts and falls back automatically if none are installed: Segoe UI, Bahnschrift, Inter, Carlito, Helvetica Neue, and finally Latin Modern. So it compiles cleanly on any machine.
 
@@ -26,17 +27,21 @@ It works with any of these fonts and falls back automatically if none are instal
 You need a LaTeX setup with **XeLaTeX** (the source uses `fontspec`, so pdfLaTeX will not work).
 
 ```bash
-xelatex "Resume Template.tex"
+xelatex resume-template.tex
 ```
 
 Or with [Tectonic](https://tectonic-typesetting.github.io/), which downloads what it needs on its own:
 
 ```bash
-tectonic "Resume Template.tex"
+tectonic resume-template.tex
 ```
 
 You can also drop the `.tex` into [Overleaf](https://www.overleaf.com) and set the compiler to XeLaTeX.
 
 ### Make it yours
 
-Edit the text inside `\begin{document} ... \end{document}`. The styling commands are defined once at the top (`\sectiontitle`, `\majorposition`, `\position`, `\bulletitem`, `\kpi`, `\boxedtext`), so you change content without touching layout.
+1. Replace every `<<< ... >>>` placeholder with your own content.
+2. Copy the marked employer block for each company, and add or remove `\bulletitem{...}` lines as needed.
+3. Wrap any metric you want to emphasize in `\kpi{...}` (for example `\kpi{+30\%}`).
+
+The styling commands are defined once at the top (`\sectiontitle`, `\majorposition`, `\position`, `\bulletitem`, `\kpi`, `\boxedtext`), so you change content without touching layout.
