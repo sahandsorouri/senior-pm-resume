@@ -20,6 +20,12 @@
 \usepackage{multicol}
 \usepackage{tcolorbox}
 \usepackage{tikz}
+\usepackage{fontawesome5}
+% Months since May 2025, recomputed on every build
+\newcount\indmonths \indmonths=\numexpr(\year-2025)*12+\month-5+1\relax
+\newcount\indyears \indyears=\numexpr(\indmonths-6)/12\relax
+\newcount\indrem \indrem=\numexpr\indmonths-\indyears*12\relax
+\newcommand{\indduration}{\ifnum\indyears>0 \the\indyears{} year\ifnum\indyears>1 s\fi\ifnum\indrem>0 {} \the\indrem{} month\ifnum\indrem>1 s\fi\fi\else\the\indmonths{} months\fi}
 \linespread{1.03}
 \setlength{\parskip}{0.2em}
 
@@ -32,7 +38,7 @@
     urlcolor=hyperlinks,
 }
 
-\providecommand{\faExternalLink}{\textcolor{grey}{\tikz[baseline=-0.55ex, x=0.9ex, y=0.9ex, line width=0.12ex]{\draw (0.15,0.15) rectangle (1.0,1.0); \draw (0.45,0.55) -- (0.95,1.05); \draw (0.75,1.05) -- (0.95,1.05) -- (0.95,0.85);}}}
+\renewcommand{\faExternalLink}{\textcolor{grey}{\tikz[baseline=-0.55ex, x=0.9ex, y=0.9ex, line width=0.12ex]{\draw (0.15,0.15) rectangle (1.0,1.0); \draw (0.45,0.55) -- (0.95,1.05); \draw (0.75,1.05) -- (0.95,1.05) -- (0.95,0.85);}}}
 
 \newcommand{\info}[1]{#1}
 \newcommand{\NameStyle}{\fontsize{18}{20}\selectfont}
@@ -64,18 +70,18 @@
 \vspace{7pt}
 {\textbf{\LARGE{\info{Senior Product Manager \textbar{} AI Builder}}}}\\
 \normalsize
-\graytext{\info{Dubai, UAE}} $\cdot$ \href{mailto:hi@sorouri.com}{\info{hi@sorouri.com}}
+\graytext{\faMapMarker*\ \info{Dubai, UAE}} \quad \href{mailto:hi@sorouri.com}{\graytext{\faEnvelope[regular]}\ \info{hi@sorouri.com}} \quad \graytext{\faPhone*\ \info{+971 52 605 8752}}
 \\
-\graytext{\info{+971 52 605 8752}} $\cdot$ \href{https://linkedin.com/in/sahand-sorouri}{\info{linkedin.com/in/sahand-sorouri} \faExternalLink{}} $\cdot$ \href{https://sahand.sorouri.com}{\info{sahand.sorouri.com} \faExternalLink{}}
+\href{https://linkedin.com/in/sahand-sorouri}{\graytext{\faLinkedin}\ \info{linkedin.com/in/sahand-sorouri}} \quad \href{https://sahand.sorouri.com}{\graytext{\faGlobe}\ \info{sahand.sorouri.com}} \quad \href{https://github.com/sahandsorouri}{\graytext{\faGithub}\ \info{github.com/sahandsorouri}}
 \end{center}
 \info{\textbf{Senior Product Manager} with \textbf{7 years} across marketplaces, fintech and real estate, now building AI products end to end. I turn manual, paper-based processes into \textbf{AI tools teams actually use}: finance automation, lead routing, internal dashboards and fast websites. Led products to \kpi{1M+} active users and \kpi{2M+} monthly transactions, delivered \kpi{+50\%} revenue uplift, and cut business onboarding from \kpi{30} days to \kpi{3}.}
 \vspace{2pt}
 \sectiontitle{Work Experience}
-{\majorposition{\info{Independent} \small{\info{Dubai, UAE}}} \hfill\Large{\textbf{\graytext{\info{2025 - Present}}}}}\\
+{\majorposition{\info{Independent Consulting} \small{\info{Dubai, UAE}}} \hfill\Large{\textbf{\graytext{\info{2025 - Present [\indduration]}}}}}\\
 {\small{\graytext{\info{AI tools, automation and websites for companies in real estate, finance, hospitality and retail}}}}
 \begin{adjustwidth}{0.5cm}{0cm}
 
-{{\position{\info{AI Product Consultant}}}\hfill \large\graytext{\info{May 2025 – Present}}}
+{{\position{\info{AI Product Consultant \& Builder}}}\hfill \large\graytext{\info{May 2025 – Present (\indduration)}}}
 \begin{adjustwidth}{0.5cm}{0cm}
 \normalsize
 \begin{itemize}
