@@ -1,12 +1,12 @@
 # Sahand Sorouri — Senior Product Manager Resume
 
-My resume, written in LaTeX. Senior PM with 6+ years across crypto, fintech, and e-commerce, based in Dubai.
+My resume, written in LaTeX. Senior Product Manager and AI builder with 7 years across marketplaces, fintech and real estate, based in Dubai.
 
 [**Download the PDF**](Sahand%20Sorouri%20-%20Senior%20Product%20Manager.pdf)
 
 - Portfolio: [sahand.sorouri.com](https://sahand.sorouri.com)
 - LinkedIn: [linkedin.com/in/sahand-sorouri](https://linkedin.com/in/sahand-sorouri)
-- Email: sahand.sorouri@gmail.com
+- Email: hi@sorouri.com
 
 ## What is in here
 
